@@ -5,8 +5,10 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:${Versions.gradle}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
+        classpath(Dep.androidGradlePlugin)
+        classpath(Dep.Kotlin.gradle)
+        classpath(Dep.Libs.hiltGradlePlugin)
+        classpath(Dep.AndroidX.navigationSafeArgs)
     }
 }
 
