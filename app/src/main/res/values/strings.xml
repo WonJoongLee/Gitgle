@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Gitgle</string>
+    <string name="title_search">Search</string>
+    <string name="title_favorite">Favorite</string>
 </resources>

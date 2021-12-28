@@ -9,7 +9,7 @@ plugins {
 
 android {
     defaultConfig {
-        applicationId = "com.ivyclub.contact"
+        applicationId = "com.wonjoong.gitgle"
         versionCode = Apps.versionCode
         versionName = Apps.versionName
     }
@@ -23,6 +23,7 @@ android {
         }
     }
     buildFeatures {
+        viewBinding = true
         dataBinding = true
     }
 }
@@ -32,6 +33,8 @@ dependencies {
     implementation(Dep.AndroidX.appcompat)
     implementation(Dep.AndroidX.material)
     implementation(Dep.AndroidX.constraintLayout)
+    implementation(Dep.AndroidX.navigationUIKtx)
+    implementation(Dep.AndroidX.navigationFragmentKtx)
     implementation(project(mapOf("path" to ":shared")))
     implementation(Dep.Libs.hilt)
     implementation(Dep.Libs.hiltViewModel)
