@@ -7,3 +7,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Gitgle"
 include(":app")
+include(":features")
+include(":features:search")
+include(":features:favorite")
