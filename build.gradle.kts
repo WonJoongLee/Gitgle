@@ -9,6 +9,7 @@ buildscript {
         classpath(Dep.Kotlin.gradle)
         classpath(Dep.Libs.hiltGradlePlugin)
         classpath(Dep.AndroidX.navigationSafeArgs)
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
     }
 }
 

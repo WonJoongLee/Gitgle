@@ -19,10 +19,10 @@ dependencies {
     implementation(Dep.AndroidX.constraintLayout)
     implementation(Dep.Libs.hilt)
     implementation(Dep.Libs.hiltViewModel)
+    implementation(project(mapOf("path" to ":shared")))
+    kapt(Dep.Libs.hiltCompiler)
+    kapt(Dep.Libs.hiltViewModelCompiler)
     testImplementation(Dep.Test.jUnit)
     androidTestImplementation(Dep.Test.ext)
     androidTestImplementation(Dep.Test.espresso)
-    androidTestImplementation(Dep.Test.hilt)
-    kapt(Dep.Libs.hiltCompiler)
-    kapt(Dep.Libs.hiltViewModelCompiler)
 }

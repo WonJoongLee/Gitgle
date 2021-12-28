@@ -29,18 +29,26 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":shared"))
+    implementation(project(":features:favorite"))
+    implementation(project(":features:search"))
+
     implementation(Dep.AndroidX.core)
     implementation(Dep.AndroidX.appcompat)
     implementation(Dep.AndroidX.material)
     implementation(Dep.AndroidX.constraintLayout)
     implementation(Dep.AndroidX.navigationUIKtx)
     implementation(Dep.AndroidX.navigationFragmentKtx)
-    implementation(project(mapOf("path" to ":shared")))
+
     implementation(Dep.Libs.hilt)
     implementation(Dep.Libs.hiltViewModel)
+
     kapt(Dep.Libs.hiltCompiler)
     kapt(Dep.Libs.hiltViewModelCompiler)
+
     testImplementation(Dep.Test.jUnit)
+
     androidTestImplementation(Dep.Test.ext)
     androidTestImplementation(Dep.Test.espresso)
 }

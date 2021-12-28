@@ -11,14 +11,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        setNavigation()
+        setNavigation()
     }
 
-//    private fun setNavigation() {
-//        val navController = findNavController(R.id.main_navigation)
-//        binding.bnv.setupWithNavController(navController)
-//    }
+    private fun setNavigation() {
+        val navController = findNavController(R.id.fcv_main)
+        binding.bnv.setupWithNavController(navController)
+    }
 }
