@@ -1,4 +1,4 @@
-package com.example.shared
+package com.wonjoong.shared
 
 import org.junit.Test
 
