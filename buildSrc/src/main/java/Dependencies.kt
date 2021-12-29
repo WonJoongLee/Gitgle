@@ -22,6 +22,8 @@ object Versions {
     const val work = "2.7.1"
     const val hiltWork = "1.0.0-alpha03"
     const val lifeCycle = "2.4.0"
+    const val OkHttp = "4.9.1"
+    const val Retrofit = "2.9.0"
 }
 
 object Dep {
@@ -54,17 +56,6 @@ object Dep {
             "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     }
 
-    val baseImplementation = listOf(
-        AndroidX.appcompat,
-        AndroidX.core,
-        AndroidX.material,
-        AndroidX.constraintLayout,
-        AndroidX.activityKtx,
-        AndroidX.fragmentKtx,
-        Libs.hilt,
-        Libs.hiltViewModel
-    )
-
     object Kotlin {
         const val gradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
         const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
@@ -96,5 +87,26 @@ object Dep {
         const val indicator = "com.tbuonomo:dotsindicator:4.2"
         const val lottie = "com.airbnb.android:lottie:4.2.1"
         const val jBCrypt = "de.svenkubiak:jBCrypt:0.4.1"
+        const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.OkHttp}"
+        const val okHttpInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.OkHttp}"
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.Retrofit}"
     }
+
+    val baseImplementation = listOf(
+        AndroidX.appcompat,
+        AndroidX.core,
+        AndroidX.material,
+        AndroidX.constraintLayout,
+        AndroidX.activityKtx,
+        AndroidX.fragmentKtx,
+        Libs.hilt,
+        Libs.hiltViewModel
+    )
+
+    val network = listOf(
+        Libs.okHttp,
+        Libs.retrofit,
+        Libs.gson,
+        Libs.okHttpInterceptor
+    )
 }
