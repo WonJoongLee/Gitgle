@@ -59,6 +59,8 @@ object Dep {
         AndroidX.core,
         AndroidX.material,
         AndroidX.constraintLayout,
+        AndroidX.activityKtx,
+        AndroidX.fragmentKtx,
         Libs.hilt,
         Libs.hiltViewModel
     )
