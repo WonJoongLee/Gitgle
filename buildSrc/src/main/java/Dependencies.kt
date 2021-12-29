@@ -26,6 +26,7 @@ object Versions {
 
 object Dep {
     const val androidGradlePlugin = "com.android.tools.build:gradle:${Versions.gradle}"
+
     object AndroidX {
         const val appcompat = "androidx.appcompat:appcompat:1.4.0"
         const val core = "androidx.core:core-ktx:1.6.0"
@@ -33,7 +34,8 @@ object Dep {
         const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.1.2"
         const val navigationUIKtx = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
         const val legacySupport = "androidx.legacy:legacy-support-v4:1.0.0"
-        const val navigationFragmentKtx = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+        const val navigationFragmentKtx =
+            "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
         const val activityKtx = "androidx.activity:activity-ktx:${Versions.activity}"
         const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragment}"
         const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
@@ -46,9 +48,20 @@ object Dep {
         const val workRuntime = "androidx.work:work-runtime-ktx:${Versions.work}"
         const val hiltWork = "androidx.hilt:hilt-work:${Versions.hiltWork}"
         const val biometric = "androidx.biometric:biometric:1.2.0-alpha04"
-        const val lifecycleRuntimeKtx = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}"
-        const val navigationSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+        const val lifecycleRuntimeKtx =
+            "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}"
+        const val navigationSafeArgs =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     }
+
+    val baseImplementation = listOf(
+        AndroidX.appcompat,
+        AndroidX.core,
+        AndroidX.material,
+        AndroidX.constraintLayout,
+        Libs.hilt,
+        Libs.hiltViewModel
+    )
 
     object Kotlin {
         const val gradle = "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31"
