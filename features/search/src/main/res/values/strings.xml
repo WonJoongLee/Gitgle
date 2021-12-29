@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="search_user">Search User</string>
+    <string name="search">Search</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="created_at">Created At</string>
+    <string name="name">Name</string>
+    <string name="user_image">User Image</string>
 </resources>
