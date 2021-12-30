@@ -7,4 +7,6 @@
     <string name="created_at">Created At</string>
     <string name="name">Name</string>
     <string name="user_image">User Image</string>
+    <string name="github_link">Github Link</string>
+    <string name="add_to_favorite">Add to favorite</string>
 </resources>

@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="@{viewModel.dataCategoryVisibility ? View.VISIBLE : View.INVISIBLE}"
-            app:constraint_referenced_ids="iv_profile_image, tv_name, tv_target_name, tv_follower, tv_target_follower, tv_following, tv_target_following, tv_created_at, tv_target_created_at" />
+            app:constraint_referenced_ids="iv_profile_image, tv_name, tv_target_name, tv_follower, tv_target_follower, tv_following, tv_target_following, tv_created_at, tv_target_created_at, iv_github_logo, iv_star" />
 
         <ImageView
             android:id="@+id/iv_profile_image"
@@ -157,6 +157,28 @@
             app:layout_constraintTop_toTopOf="@id/tv_created_at"
             tools:text="11/08/2019" />
 
+        <ImageView
+            android:id="@+id/iv_github_logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/github_link"
+            android:padding="8dp"
+            android:src="@drawable/github_logo"
+            app:layout_constraintEnd_toEndOf="@id/btn_search"
+            app:layout_constraintTop_toBottomOf="@id/btn_search" />
+
+        <ImageView
+            android:id="@+id/iv_star"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/add_to_favorite"
+            android:padding="4dp"
+            android:src="@drawable/ic_baseline_star_outline_24"
+            app:layout_constraintBottom_toBottomOf="@id/iv_github_logo"
+            app:layout_constraintEnd_toStartOf="@id/iv_github_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_github_logo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
