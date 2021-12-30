@@ -52,6 +52,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_search" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_not_found"
+            android:visibility="@{viewModel.isUserRepoNotFound ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search"
+            tools:ignore="HardcodedText" />
+
         <androidx.constraintlayout.widget.Group
             android:id="@+id/group_result"
             android:layout_width="wrap_content"
