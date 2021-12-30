@@ -13,6 +13,7 @@ class SearchViewModel @Inject constructor(
     private val getUserInfo: GetUserInfoUseCase
 ) : ViewModel() {
     val userInput = MutableLiveData<String>()
+    val profileImageUrl = MutableLiveData<String>()
     val name = MutableLiveData<String>()
     val follower = MutableLiveData<String>()
     val following = MutableLiveData<String>()
@@ -21,10 +22,11 @@ class SearchViewModel @Inject constructor(
     fun searchInput() {
         viewModelScope.launch {
             val result = getUserInfo.execute(userInput.value.toString())
+            profileImageUrl.value = result.profileUrl
             name.value = result.name
             follower.value = result.followers
             following.value = result.following
-            createdAt.value = result.createdAt
+            createdAt.value = result.createdAt.substringBefore("T")
         }
     }
 }

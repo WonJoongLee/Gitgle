@@ -62,6 +62,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/user_image"
+            src="@{viewModel.profileImageUrl}"
             app:layout_constraintStart_toStartOf="@id/et_search"
             app:layout_constraintTop_toBottomOf="@id/et_search"
             tools:src="@tools:sample/backgrounds/scenic" />

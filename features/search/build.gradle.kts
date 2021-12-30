@@ -15,6 +15,7 @@ android {
 dependencies {
     implementation(project(mapOf("path" to ":domain")))
     Dep.baseImplementation.forEach(::implementation)
+    implementation(Dep.Libs.glide)
     implementation(project(mapOf("path" to ":shared")))
     implementation(project(":data"))
     kapt(Dep.Libs.hiltCompiler)
