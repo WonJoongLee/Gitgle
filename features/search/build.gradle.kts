@@ -15,7 +15,7 @@ android {
 dependencies {
     Dep.baseImplementation.forEach(::implementation)
     implementation(project(mapOf("path" to ":shared")))
-//    implementation(project(":data"))
+    implementation(project(":data"))
     kapt(Dep.Libs.hiltCompiler)
     kapt(Dep.Libs.hiltViewModelCompiler)
     testImplementation(Dep.Test.jUnit)

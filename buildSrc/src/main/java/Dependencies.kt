@@ -77,6 +77,7 @@ object Dep {
     object Libs {
         const val glide = "com.github.bumptech.glide:glide:4.12.0"
         const val gson = "com.google.code.gson:gson:2.8.8"
+        const val gsonConverter = "com.squareup.retrofit2:converter-gson:2.9.0"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
         const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
@@ -107,6 +108,7 @@ object Dep {
         Libs.okHttp,
         Libs.retrofit,
         Libs.gson,
+        Libs.gsonConverter,
         Libs.okHttpInterceptor
     )
 }

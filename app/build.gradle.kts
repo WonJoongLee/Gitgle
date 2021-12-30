@@ -26,6 +26,9 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 dependencies {
