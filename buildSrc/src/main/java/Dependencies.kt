@@ -54,6 +54,7 @@ object Dep {
             "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}"
         const val navigationSafeArgs =
             "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
+        const val browser = "androidx.browser:browser:1.4.0"
     }
 
     object Kotlin {
