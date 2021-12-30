@@ -1,13 +1,14 @@
 package com.wonjoong.search.ui
 
 import androidx.lifecycle.ViewModel
-import com.wonjoong.data.api.GithubApi
+import com.wonjoong.domain.usecase.user.GetUserInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val githubApi: GithubApi
+    private val getUserInfo: GetUserInfoUseCase
 ) : ViewModel() {
-
+    init {
+    }
 }

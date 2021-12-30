@@ -13,6 +13,7 @@ android {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":domain")))
     Dep.baseImplementation.forEach(::implementation)
     implementation(project(mapOf("path" to ":shared")))
     implementation(project(":data"))
