@@ -7,12 +7,10 @@ import com.wonjoong.data.model.GithubUserInfo
 import com.wonjoong.domain.usecase.user.GetUserInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-// todo UIState(StateFlow)로 업데이트하기
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val getUserInfo: GetUserInfoUseCase
@@ -31,13 +29,10 @@ class SearchViewModel @Inject constructor(
 
     fun searchInput() {
         _searchUiState.value = SearchUiState.Loading
-//        isLoading.value = true
-//        dataCategoryVisibility.value = false
         viewModelScope.launch {
             runCatching {
                 getUserInfo.execute(userInput.value.toString())
             }.onSuccess { githubUserInfo ->
-                //isLoading.value = false
                 _searchUiState.value = SearchUiState.Found
                 bindResultData(githubUserInfo)
             }.onFailure {
