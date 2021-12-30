@@ -5,12 +5,9 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="viewModel"
             type="com.wonjoong.search.ui.SearchViewModel" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,17 +43,16 @@
             android:id="@+id/progress_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_search" />
 
         <TextView
+            android:id="@+id/tv_not_found"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/user_not_found"
-            android:visibility="@{viewModel.isUserRepoNotFound ? View.VISIBLE : View.INVISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +63,6 @@
             android:id="@+id/group_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="@{viewModel.dataCategoryVisibility ? View.VISIBLE : View.INVISIBLE}"
             app:constraint_referenced_ids="iv_profile_image, tv_name, tv_target_name, tv_follower, tv_target_follower, tv_following, tv_target_following, tv_created_at, tv_target_created_at, iv_github_logo, iv_star" />
 
         <ImageView

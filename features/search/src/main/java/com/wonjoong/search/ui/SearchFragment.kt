@@ -23,7 +23,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         super.onViewCreated(view, savedInstanceState)
         initBinding()
         initGithubLogoClickEvent()
-        observeLoadingDone()
+        collectSearchUiState()
     }
 
     private fun initBinding() {
@@ -42,11 +42,33 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         }
     }
 
-    private fun observeLoadingDone() {
+    private fun collectSearchUiState() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.isLoading.collectLatest { isLoadingDone ->
-                    if (isLoadingDone) binding.hideKeyboard()
+                viewModel.searchUiState.collectLatest { newSearchUiState ->
+                    when (newSearchUiState) {
+                        SearchViewModel.SearchUiState.Found -> {
+                            binding.groupResult.visibility = View.VISIBLE
+                            binding.tvNotFound.visibility = View.GONE
+                            binding.progressBar.visibility = View.GONE
+                        }
+                        SearchViewModel.SearchUiState.NotFound -> {
+                            binding.groupResult.visibility = View.GONE
+                            binding.tvNotFound.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.GONE
+                        }
+                        SearchViewModel.SearchUiState.Loading -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                            binding.groupResult.visibility = View.GONE
+                            binding.tvNotFound.visibility = View.GONE
+                            binding.hideKeyboard()
+                        }
+                        SearchViewModel.SearchUiState.Empty -> {
+                            binding.progressBar.visibility = View.GONE
+                            binding.groupResult.visibility = View.GONE
+                            binding.tvNotFound.visibility = View.GONE
+                        }
+                    }
                 }
             }
         }
