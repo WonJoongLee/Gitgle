@@ -3,10 +3,12 @@ package com.wonjoong.search.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.wonjoong.data.model.FavoriteUserData
-import com.wonjoong.data.model.GithubUserInfo
+//import com.wonjoong.data.model.FavoriteUserData
+//import com.wonjoong.data.model.GithubUserInfo
 import com.wonjoong.domain.usecase.repository.SaveFavoriteUserUseCase
 import com.wonjoong.domain.usecase.user.GetUserInfoUseCase
+import com.wonjoong.shared.model.FavoriteUserData
+import com.wonjoong.shared.model.GithubUserInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

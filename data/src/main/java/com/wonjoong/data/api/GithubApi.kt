@@ -1,6 +1,6 @@
 package com.wonjoong.data.api
 
-import com.wonjoong.data.model.GithubUserInfo
+import com.wonjoong.shared.model.GithubUserInfo
 import retrofit2.http.GET
 import retrofit2.http.Path
 

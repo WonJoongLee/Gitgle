@@ -11,6 +11,7 @@ dependencies {
     implementation(Dep.Kotlin.coroutine)
     implementation(Dep.Kotlin.coroutineCore)
     implementation(project(mapOf("path" to ":data")))
+    implementation(project(":shared"))
     kapt(Dep.Libs.hiltCompiler)
     testImplementation(Dep.Test.jUnit)
 }

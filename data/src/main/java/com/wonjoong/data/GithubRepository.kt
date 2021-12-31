@@ -1,7 +1,7 @@
 package com.wonjoong.data
 
-import com.wonjoong.data.model.FavoriteUserData
-import com.wonjoong.data.model.GithubUserInfo
+import com.wonjoong.shared.model.FavoriteUserData
+import com.wonjoong.shared.model.GithubUserInfo
 
 interface GithubRepository {
     suspend fun getGithubUserInfoOf(userId: String): GithubUserInfo

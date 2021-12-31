@@ -19,7 +19,7 @@ dependencies {
     implementation(Dep.AndroidX.browser)
     implementation(Dep.AndroidX.lifecycleRuntimeKtx)
     implementation(project(mapOf("path" to ":shared")))
-    implementation(project(":data"))
+    //implementation(project(":data"))
     kapt(Dep.Libs.hiltCompiler)
     kapt(Dep.Libs.hiltViewModelCompiler)
     testImplementation(Dep.Test.jUnit)

@@ -1,7 +1,7 @@
 package com.wonjoong.domain.usecase.repository
 
 import com.wonjoong.data.GithubRepository
-import com.wonjoong.data.model.FavoriteUserData
+import com.wonjoong.shared.model.FavoriteUserData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.wonjoong.data.model
+package com.wonjoong.shared.model
 
 import com.google.gson.annotations.SerializedName
 

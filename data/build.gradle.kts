@@ -6,6 +6,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(mapOf("path" to ":shared")))
     Dep.network.forEach(::implementation)
     implementation(Dep.Libs.hilt)
     implementation(Dep.AndroidX.hiltWork)
