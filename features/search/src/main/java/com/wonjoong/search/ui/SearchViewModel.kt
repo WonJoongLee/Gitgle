@@ -3,8 +3,6 @@ package com.wonjoong.search.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-//import com.wonjoong.data.model.FavoriteUserData
-//import com.wonjoong.data.model.GithubUserInfo
 import com.wonjoong.domain.usecase.repository.SaveFavoriteUserUseCase
 import com.wonjoong.domain.usecase.user.GetUserInfoUseCase
 import com.wonjoong.shared.model.FavoriteUserData
@@ -52,6 +50,7 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             saveFavoriteUserUseCase.execute(
                 FavoriteUserData(
+                    userId = userInput.value ?: "-",
                     name = name.value ?: "-",
                     profileUrl = profileImageUrl.value ?: "-",
                     followers = follower.value ?: "-",

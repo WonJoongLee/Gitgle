@@ -12,7 +12,16 @@ class GithubRepositoryImpl @Inject constructor(
     private val gitgleDAO: GitgleDAO
 ) : GithubRepository {
     override suspend fun getGithubUserInfoOf(userId: String): GithubUserInfo {
-        return githubApi.getUserInfo(userId)
+        return runCatching {
+            val localUserInfo = gitgleDAO.getUserByUserId(userId)
+            GithubUserInfo(
+                name = localUserInfo.name,
+                profileUrl = localUserInfo.profileUrl,
+                followers = localUserInfo.followers,
+                following = localUserInfo.following,
+                createdAt = localUserInfo.createdAt
+            )
+        }.getOrDefault(githubApi.getUserInfo(userId))
     }
 
     override suspend fun saveAsFavoriteUser(favoriteUserData: FavoriteUserData) {
