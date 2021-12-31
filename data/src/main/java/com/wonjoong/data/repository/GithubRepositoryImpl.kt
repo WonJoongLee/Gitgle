@@ -13,13 +13,14 @@ class GithubRepositoryImpl @Inject constructor(
 ) : GithubRepository {
     override suspend fun getGithubUserInfoOf(userId: String): GithubUserInfo {
         return runCatching {
-            val localUserInfo = gitgleDAO.getUserByUserId(userId)
+            val localFavoriteUserInfo = gitgleDAO.getUserByUserId(userId)
             GithubUserInfo(
-                name = localUserInfo.name,
-                profileUrl = localUserInfo.profileUrl,
-                followers = localUserInfo.followers,
-                following = localUserInfo.following,
-                createdAt = localUserInfo.createdAt
+                name = localFavoriteUserInfo.name,
+                profileUrl = localFavoriteUserInfo.profileUrl,
+                followers = localFavoriteUserInfo.followers,
+                following = localFavoriteUserInfo.following,
+                createdAt = localFavoriteUserInfo.createdAt,
+                isFavorite = true
             )
         }.getOrDefault(githubApi.getUserInfo(userId))
     }

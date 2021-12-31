@@ -9,5 +9,6 @@ data class GithubUserInfo(
     val followers: String?,
     val following: String?,
     @SerializedName("created_at")
-    val createdAt: String?
+    val createdAt: String?,
+    var isFavorite: Boolean = false
 )

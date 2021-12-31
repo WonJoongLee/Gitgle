@@ -36,6 +36,8 @@ class SearchViewModel @Inject constructor(
             runCatching {
                 getUserInfo.execute(userInput.value.toString())
             }.onSuccess { githubUserInfo ->
+                _favoriteClickedUiState.value =
+                    if (githubUserInfo.isFavorite) FavoriteClickState.Enabled else FavoriteClickState.Disabled
                 _searchUiState.value = SearchUiState.Found
                 bindResultData(githubUserInfo)
             }.onFailure {
@@ -56,6 +58,7 @@ class SearchViewModel @Inject constructor(
                     followers = follower.value ?: "-",
                     following = following.value ?: "-",
                     createdAt = createdAt.value ?: "-",
+                    isFavorite = true
                 )
             )
         }

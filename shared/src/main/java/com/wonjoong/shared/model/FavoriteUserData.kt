@@ -11,6 +11,7 @@ data class FavoriteUserData(
     val followers: String,
     val following: String,
     val createdAt: String,
+    var isFavorite: Boolean = false,
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0
 )
