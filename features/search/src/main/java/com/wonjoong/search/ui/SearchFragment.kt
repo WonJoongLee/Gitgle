@@ -24,6 +24,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         initBinding()
         initGithubLogoClickEvent()
         collectSearchUiState()
+        collectFavoriteClickedUiState()
     }
 
     private fun initBinding() {
@@ -67,6 +68,23 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
                             binding.progressBar.visibility = View.GONE
                             binding.groupResult.visibility = View.GONE
                             binding.tvNotFound.visibility = View.GONE
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun collectFavoriteClickedUiState() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.favoriteClickedUiState.collectLatest { newEnabledState ->
+                    when (newEnabledState) {
+                        SearchViewModel.FavoriteClickState.Enabled -> {
+                            binding.ivStar.setBackgroundResource(R.drawable.ic_baseline_star_24)
+                        }
+                        SearchViewModel.FavoriteClickState.Disabled, SearchViewModel.FavoriteClickState.Empty -> {
+                            binding.ivStar.setBackgroundResource(R.drawable.ic_baseline_star_outline_24)
                         }
                     }
                 }

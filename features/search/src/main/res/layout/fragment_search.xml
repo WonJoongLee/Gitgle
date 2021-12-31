@@ -182,7 +182,6 @@
             android:contentDescription="@string/add_to_favorite"
             android:onClick="@{()->viewModel.saveAsFavoriteFriend()}"
             android:padding="4dp"
-            android:src="@drawable/ic_baseline_star_outline_24"
             app:layout_constraintBottom_toBottomOf="@id/iv_github_logo"
             app:layout_constraintEnd_toStartOf="@id/iv_github_logo"
             app:layout_constraintTop_toTopOf="@id/iv_github_logo" />

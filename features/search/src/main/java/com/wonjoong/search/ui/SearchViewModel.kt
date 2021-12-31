@@ -26,6 +26,9 @@ class SearchViewModel @Inject constructor(
     val createdAt = MutableLiveData<String>()
     private val _searchUiState = MutableStateFlow<SearchUiState>(SearchUiState.Empty)
     val searchUiState = _searchUiState.asStateFlow()
+    private val _favoriteClickedUiState =
+        MutableStateFlow<FavoriteClickState>(FavoriteClickState.Empty)
+    val favoriteClickedUiState = _favoriteClickedUiState.asStateFlow()
 
     fun searchInput() {
         _searchUiState.value = SearchUiState.Loading
@@ -42,6 +45,8 @@ class SearchViewModel @Inject constructor(
     }
 
     fun saveAsFavoriteFriend() {
+        _favoriteClickedUiState.value =
+            if (_favoriteClickedUiState.value == FavoriteClickState.Disabled || _favoriteClickedUiState.value == FavoriteClickState.Empty) FavoriteClickState.Enabled else FavoriteClickState.Disabled
         viewModelScope.launch {
             saveFavoriteUserUseCase.execute(
                 FavoriteUserData(
@@ -68,5 +73,11 @@ class SearchViewModel @Inject constructor(
         object NotFound : SearchUiState()
         object Loading : SearchUiState()
         object Empty : SearchUiState()
+    }
+
+    sealed class FavoriteClickState {
+        object Enabled : FavoriteClickState()
+        object Disabled : FavoriteClickState()
+        object Empty : FavoriteClickState()
     }
 }
