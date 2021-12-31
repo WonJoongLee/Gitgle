@@ -17,9 +17,13 @@ dependencies {
     implementation(Dep.Libs.glide)
     implementation(Dep.Libs.gson)
     implementation(Dep.Libs.gsonConverter)
+
     testImplementation(Dep.Test.jUnit)
+
     androidTestImplementation(Dep.Test.ext)
     androidTestImplementation(Dep.Test.espresso)
+
     api(Dep.AndroidX.roomRuntime)
+
     kapt(Dep.AndroidX.roomCompiler)
 }
