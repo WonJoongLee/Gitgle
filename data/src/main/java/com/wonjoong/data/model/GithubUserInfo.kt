@@ -9,8 +9,5 @@ data class GithubUserInfo(
     val followers: String?,
     val following: String?,
     @SerializedName("created_at")
-    val createdAt: String?,
-    // If there is no target user(or repository),
-    // this message will be "Not Found"
-    val message: String?
+    val createdAt: String?
 )

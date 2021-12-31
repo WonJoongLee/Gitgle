@@ -3,7 +3,9 @@ package com.wonjoong.search.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.wonjoong.data.model.FavoriteUserData
 import com.wonjoong.data.model.GithubUserInfo
+import com.wonjoong.domain.usecase.repository.SaveFavoriteUserUseCase
 import com.wonjoong.domain.usecase.user.GetUserInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val getUserInfo: GetUserInfoUseCase
+    private val getUserInfo: GetUserInfoUseCase,
+    private val saveFavoriteUserUseCase: SaveFavoriteUserUseCase
 ) : ViewModel() {
     val userInput = MutableLiveData<String>()
     val profileImageUrl = MutableLiveData<String>()
@@ -40,6 +43,20 @@ class SearchViewModel @Inject constructor(
                 isLoading.value = false
                 isUserRepoNotFound.value = true
             }
+        }
+    }
+
+    fun saveAsFavoriteFriend() {
+        viewModelScope.launch {
+            saveFavoriteUserUseCase.execute(
+                FavoriteUserData(
+                    name = name.value ?: "-",
+                    profileUrl = profileImageUrl.value ?: "-",
+                    followers = follower.value ?: "-",
+                    following = following.value ?: "-",
+                    createdAt = createdAt.value ?: "-",
+                )
+            )
         }
     }
 
