@@ -26,9 +26,6 @@ class SearchViewModel @Inject constructor(
     val createdAt = MutableLiveData<String>()
     private val _searchUiState = MutableStateFlow<SearchUiState>(SearchUiState.Empty)
     val searchUiState = _searchUiState.asStateFlow()
-    val isLoading = MutableStateFlow(false)
-    val dataCategoryVisibility = MutableStateFlow(false)
-    val isUserRepoNotFound = MutableStateFlow(false)
 
     fun searchInput() {
         _searchUiState.value = SearchUiState.Loading
@@ -40,8 +37,6 @@ class SearchViewModel @Inject constructor(
                 bindResultData(githubUserInfo)
             }.onFailure {
                 _searchUiState.value = SearchUiState.NotFound
-                isLoading.value = false
-                isUserRepoNotFound.value = true
             }
         }
     }
@@ -61,9 +56,6 @@ class SearchViewModel @Inject constructor(
     }
 
     private fun bindResultData(githubUserInfo: GithubUserInfo) {
-        isUserRepoNotFound.value = false
-        isLoading.value = false
-        dataCategoryVisibility.value = true
         profileImageUrl.value = githubUserInfo.profileUrl ?: "-"
         name.value = githubUserInfo.name ?: "-"
         follower.value = githubUserInfo.followers ?: "-"
