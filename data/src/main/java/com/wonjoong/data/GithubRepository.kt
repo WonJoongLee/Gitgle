@@ -11,5 +11,7 @@ interface GithubRepository {
 
     suspend fun deleteFavoriteUser(userId: String)
 
+    suspend fun getFavoriteUserByUserId(userId: String): FavoriteUserData
+
     fun getAllFavoriteUsers(): Flow<List<FavoriteUserData>>
 }

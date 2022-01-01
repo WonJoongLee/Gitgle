@@ -22,7 +22,15 @@ fun ViewDataBinding.hideKeyboard() {
 
 fun ViewDataBinding.makeSnackBar(
     message: String,
+    action: () -> Unit = { },
+    actionMessage: String = "",
     length: Int = Snackbar.LENGTH_SHORT
 ) {
-    Snackbar.make(this.root, message, length).show()
+    if (actionMessage.isEmpty()) {
+        Snackbar.make(this.root, message, length).show()
+    } else {
+        Snackbar.make(this.root, message, length).setAction(actionMessage) {
+            action.invoke()
+        }.show()
+    }
 }

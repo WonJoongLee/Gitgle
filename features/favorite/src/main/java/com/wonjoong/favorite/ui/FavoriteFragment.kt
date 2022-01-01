@@ -6,6 +6,7 @@ import androidx.fragment.app.viewModels
 import com.wonjoong.favorite.R
 import com.wonjoong.favorite.databinding.FragmentFavoriteBinding
 import com.wonjoong.shared.base.BaseFragment
+import com.wonjoong.shared.util.makeSnackBar
 import com.wonjoong.shared.util.openUrl
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -15,7 +16,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
     private val viewModel: FavoriteViewModel by viewModels()
     private val favoriteAdapter by lazy {
         FavoriteAdapter(
-            viewModel::removeFavoriteUser,
+            this::removeFavoriteUser,
             requireContext()::openUrl
         )
     }
@@ -40,5 +41,14 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
         viewModel.favoriteUserList.observe(viewLifecycleOwner) { newList ->
             favoriteAdapter.submitList(newList)
         }
+    }
+
+    private fun removeFavoriteUser(userId: String) {
+        viewModel.removeFavoriteUser(userId)
+        binding.makeSnackBar(
+            getString(R.string.user_removed, userId),
+            viewModel::addRecentlyRemovedUser,
+            getString(R.string.cancel)
+        )
     }
 }

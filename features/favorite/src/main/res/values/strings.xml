@@ -4,4 +4,6 @@
     <string name="github_logo">Github logo</string>
     <string name="follower_info">Follower: %s, Following: %s</string>
     <string name="profile_image">Profile Image</string>
+    <string name="user_removed">User %s has been removed.</string>
+    <string name="cancel">Cancel</string>
 </resources>

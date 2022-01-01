@@ -17,7 +17,7 @@ class GithubRepositoryImpl @Inject constructor(
 ) : GithubRepository {
     override suspend fun getGithubUserInfoOf(userId: String): GithubUserInfo {
         return runCatching {
-            val localFavoriteUserInfo = gitgleDAO.getUserByUserId(userId)
+            val localFavoriteUserInfo = gitgleDAO.getFavoriteUserByUserId(userId)
             GithubUserInfo(
                 name = localFavoriteUserInfo.name,
                 profileUrl = localFavoriteUserInfo.profileImageUrl,
@@ -35,6 +35,10 @@ class GithubRepositoryImpl @Inject constructor(
 
     override suspend fun deleteFavoriteUser(userId: String) {
         gitgleDAO.deleteUserByUserId(userId)
+    }
+
+    override suspend fun getFavoriteUserByUserId(userId: String): FavoriteUserData {
+        return gitgleDAO.getFavoriteUserByUserId(userId)
     }
 
     override fun getAllFavoriteUsers(): Flow<List<FavoriteUserData>> =
