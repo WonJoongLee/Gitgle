@@ -28,14 +28,16 @@
 
         <TextView
             android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:ellipsize="end"
             android:text="@{userData.name}"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/tv_follow_info"
+            app:layout_constraintEnd_toStartOf="@id/iv_star"
             app:layout_constraintStart_toEndOf="@id/iv_user_image"
             app:layout_constraintTop_toTopOf="@id/iv_user_image"
             app:layout_constraintVertical_chainStyle="packed"
@@ -64,22 +66,26 @@
 
         <TextView
             android:id="@+id/tv_follow_info"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:text="@{String.format(@string/follower_info, userData.followers, userData.following)}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/tv_created_at"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_name"
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="Follower: 66, Following: 86" />
 
         <TextView
             android:id="@+id/tv_created_at"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:text="@{userData.createdAt}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/iv_user_image"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_name"
             app:layout_constraintTop_toBottomOf="@id/tv_follow_info"
             tools:text="2022-01-01" />
