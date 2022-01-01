@@ -12,6 +12,7 @@ android {
 }
 
 dependencies {
+    implementation(Dep.AndroidX.material)
     implementation(Dep.AndroidX.appcompat)
     implementation(Dep.AndroidX.core)
     implementation(Dep.AndroidX.roomKtx)
