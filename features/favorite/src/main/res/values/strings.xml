@@ -6,4 +6,5 @@
     <string name="profile_image">Profile Image</string>
     <string name="user_removed">User %s has been removed.</string>
     <string name="cancel">Cancel</string>
+    <string name="add_favorite_user">Add favorite users!</string>
 </resources>

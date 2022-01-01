@@ -25,6 +25,7 @@ class FavoriteViewModel @Inject constructor(
     val favoriteUserList: LiveData<List<FavoriteUserData>> get() = _favoriteUserList
     private lateinit var recentlyRemovedUser: FavoriteUserData
 
+
     init {
         getFavoriteUserList()
     }
