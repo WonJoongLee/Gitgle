@@ -9,21 +9,33 @@ import com.wonjoong.favorite.databinding.ItemGithubUserBinding
 import com.wonjoong.shared.model.FavoriteUserData
 import com.wonjoong.shared.util.binding
 
-class FavoriteAdapter :
+class FavoriteAdapter(private val removeFavoriteUser: (String) -> Unit) :
     ListAdapter<FavoriteUserData, FavoriteAdapter.FavoriteUserViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteUserViewHolder {
-        return FavoriteUserViewHolder(parent.binding(R.layout.item_github_user))
+        return FavoriteUserViewHolder(parent.binding(R.layout.item_github_user), removeFavoriteUser)
     }
 
     override fun onBindViewHolder(holder: FavoriteUserViewHolder, position: Int) {
         holder.bind(currentList[position])
     }
 
-    class FavoriteUserViewHolder(private val binding: ItemGithubUserBinding) :
+    class FavoriteUserViewHolder(
+        private val binding: ItemGithubUserBinding,
+        private val removeFavoriteUser: (String) -> Unit
+    ) :
         RecyclerView.ViewHolder(binding.root) {
+        private lateinit var userId: String
+
+        init {
+            binding.ivStar.setOnClickListener {
+                if (this::userId.isInitialized) removeFavoriteUser.invoke(userId)
+            }
+        }
+
         fun bind(userData: FavoriteUserData) {
             binding.userData = userData
+            userId = userData.userId
         }
     }
 
