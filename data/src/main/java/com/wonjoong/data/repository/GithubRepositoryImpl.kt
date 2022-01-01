@@ -16,7 +16,7 @@ class GithubRepositoryImpl @Inject constructor(
             val localFavoriteUserInfo = gitgleDAO.getUserByUserId(userId)
             GithubUserInfo(
                 name = localFavoriteUserInfo.name,
-                profileUrl = localFavoriteUserInfo.profileUrl,
+                profileUrl = localFavoriteUserInfo.profileImageUrl,
                 followers = localFavoriteUserInfo.followers,
                 following = localFavoriteUserInfo.following,
                 createdAt = localFavoriteUserInfo.createdAt,

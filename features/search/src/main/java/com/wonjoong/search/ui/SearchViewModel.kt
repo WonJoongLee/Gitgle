@@ -56,7 +56,7 @@ class SearchViewModel @Inject constructor(
                     FavoriteUserData(
                         userId = userInput.value ?: "-",
                         name = name.value ?: "-",
-                        profileUrl = profileImageUrl.value ?: "-",
+                        profileImageUrl = profileImageUrl.value ?: "-",
                         followers = follower.value ?: "-",
                         following = following.value ?: "-",
                         createdAt = createdAt.value ?: "-",

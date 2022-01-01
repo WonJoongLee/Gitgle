@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class FavoriteUserData(
     val userId: String,
     val name: String,
-    val profileUrl: String,
+    val profileImageUrl: String,
     val followers: String,
     val following: String,
     val createdAt: String,
