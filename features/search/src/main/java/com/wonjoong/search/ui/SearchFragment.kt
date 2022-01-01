@@ -12,6 +12,7 @@ import com.wonjoong.search.R
 import com.wonjoong.search.databinding.FragmentSearchBinding
 import com.wonjoong.shared.base.BaseFragment
 import com.wonjoong.shared.util.hideKeyboard
+import com.wonjoong.shared.util.openUrl
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -34,12 +35,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
     private fun initGithubLogoClickEvent() {
         binding.ivGithubLogo.setOnClickListener {
-            CustomTabsIntent.Builder()
-                .build()
-                .launchUrl(
-                    requireContext(),
-                    "https://www.github.com/${viewModel.userInput.value}".toUri()
-                )
+            requireContext().openUrl("https://www.github.com/${viewModel.userInput.value}")
         }
     }
 
