@@ -2,6 +2,6 @@
 <resources>
     <string name="star_image">Star Image</string>
     <string name="github_logo">Github logo</string>
-    <string name="follower_info">Follower: %d, Following %d</string>
+    <string name="follower_info">Follower: %s, Following: %s</string>
     <string name="profile_image">Profile Image</string>
 </resources>

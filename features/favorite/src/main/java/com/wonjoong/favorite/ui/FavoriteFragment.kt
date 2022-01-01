@@ -22,7 +22,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
     }
 
     private fun initBinding() {
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
     }
 
