@@ -12,4 +12,7 @@ interface GitgleDAO {
 
     @Query("SELECT * FROM FavoriteUser WHERE userId = :userId LIMIT 1")
     suspend fun getUserByUserId(userId: String): FavoriteUserData
+
+    @Query("DELETE FROM FavoriteUser WHERE userId = :userId")
+    suspend fun deleteUserByUserId(userId: String)
 }

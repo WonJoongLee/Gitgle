@@ -28,4 +28,8 @@ class GithubRepositoryImpl @Inject constructor(
     override suspend fun saveAsFavoriteUser(favoriteUserData: FavoriteUserData) {
         gitgleDAO.saveFavoriteFriend(favoriteUserData)
     }
+
+    override suspend fun deleteFavoriteUser(userId: String) {
+        gitgleDAO.deleteUserByUserId(userId)
+    }
 }

@@ -1,4 +1,4 @@
-package com.wonjoong.domain.usecase.repository
+package com.wonjoong.domain.usecase.local
 
 import com.wonjoong.data.GithubRepository
 import com.wonjoong.shared.model.FavoriteUserData

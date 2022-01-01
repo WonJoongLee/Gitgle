@@ -7,4 +7,6 @@ interface GithubRepository {
     suspend fun getGithubUserInfoOf(userId: String): GithubUserInfo
 
     suspend fun saveAsFavoriteUser(favoriteUserData: FavoriteUserData)
+
+    suspend fun deleteFavoriteUser(userId: String)
 }

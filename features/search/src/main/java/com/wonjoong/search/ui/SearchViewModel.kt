@@ -3,7 +3,8 @@ package com.wonjoong.search.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.wonjoong.domain.usecase.repository.SaveFavoriteUserUseCase
+import com.wonjoong.domain.usecase.local.RemoveFavoriteUserUseCase
+import com.wonjoong.domain.usecase.local.SaveFavoriteUserUseCase
 import com.wonjoong.domain.usecase.user.GetUserInfoUseCase
 import com.wonjoong.shared.model.FavoriteUserData
 import com.wonjoong.shared.model.GithubUserInfo
@@ -16,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val getUserInfo: GetUserInfoUseCase,
-    private val saveFavoriteUserUseCase: SaveFavoriteUserUseCase
+    private val saveFavoriteUserUseCase: SaveFavoriteUserUseCase,
+    private val deleteFavoriteUserUseCase: RemoveFavoriteUserUseCase
 ) : ViewModel() {
     val userInput = MutableLiveData<String>()
     val profileImageUrl = MutableLiveData<String>()
@@ -47,20 +49,25 @@ class SearchViewModel @Inject constructor(
     }
 
     fun saveAsFavoriteFriend() {
-        _favoriteClickedUiState.value =
-            if (_favoriteClickedUiState.value == FavoriteClickState.Disabled || _favoriteClickedUiState.value == FavoriteClickState.Empty) FavoriteClickState.Enabled else FavoriteClickState.Disabled
         viewModelScope.launch {
-            saveFavoriteUserUseCase.execute(
-                FavoriteUserData(
-                    userId = userInput.value ?: "-",
-                    name = name.value ?: "-",
-                    profileUrl = profileImageUrl.value ?: "-",
-                    followers = follower.value ?: "-",
-                    following = following.value ?: "-",
-                    createdAt = createdAt.value ?: "-",
-                    isFavorite = true
+            val currentClickedState = _favoriteClickedUiState.value
+            if (currentClickedState == FavoriteClickState.Disabled) {
+                saveFavoriteUserUseCase.execute(
+                    FavoriteUserData(
+                        userId = userInput.value ?: "-",
+                        name = name.value ?: "-",
+                        profileUrl = profileImageUrl.value ?: "-",
+                        followers = follower.value ?: "-",
+                        following = following.value ?: "-",
+                        createdAt = createdAt.value ?: "-",
+                        isFavorite = true
+                    )
                 )
-            )
+            } else {
+                deleteFavoriteUserUseCase.execute(userInput.value.toString())
+            }
+            _favoriteClickedUiState.value =
+                if (currentClickedState == FavoriteClickState.Disabled || currentClickedState == FavoriteClickState.Empty) FavoriteClickState.Enabled else FavoriteClickState.Disabled
         }
     }
 
