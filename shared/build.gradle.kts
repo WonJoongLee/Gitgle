@@ -13,7 +13,9 @@ android {
 
 dependencies {
     implementation(Dep.AndroidX.appcompat)
+    implementation(Dep.AndroidX.core)
     implementation(Dep.AndroidX.roomKtx)
+    implementation(Dep.AndroidX.browser)
     implementation(Dep.Libs.glide)
     implementation(Dep.Libs.gson)
     implementation(Dep.Libs.gsonConverter)

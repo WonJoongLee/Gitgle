@@ -9,11 +9,18 @@ import com.wonjoong.favorite.databinding.ItemGithubUserBinding
 import com.wonjoong.shared.model.FavoriteUserData
 import com.wonjoong.shared.util.binding
 
-class FavoriteAdapter(private val removeFavoriteUser: (String) -> Unit) :
+class FavoriteAdapter(
+    private val removeFavoriteUser: (String) -> Unit,
+    private val openLink: (String) -> Unit
+) :
     ListAdapter<FavoriteUserData, FavoriteAdapter.FavoriteUserViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteUserViewHolder {
-        return FavoriteUserViewHolder(parent.binding(R.layout.item_github_user), removeFavoriteUser)
+        return FavoriteUserViewHolder(
+            parent.binding(R.layout.item_github_user),
+            removeFavoriteUser,
+            openLink
+        )
     }
 
     override fun onBindViewHolder(holder: FavoriteUserViewHolder, position: Int) {
@@ -22,20 +29,32 @@ class FavoriteAdapter(private val removeFavoriteUser: (String) -> Unit) :
 
     class FavoriteUserViewHolder(
         private val binding: ItemGithubUserBinding,
-        private val removeFavoriteUser: (String) -> Unit
+        private val removeFavoriteUser: (String) -> Unit,
+        private val openLink: (String) -> Unit
     ) :
         RecyclerView.ViewHolder(binding.root) {
         private lateinit var userId: String
 
         init {
-            binding.ivStar.setOnClickListener {
-                if (this::userId.isInitialized) removeFavoriteUser.invoke(userId)
-            }
+            initStarClickListener()
+            initGithubLogoClickListener()
         }
 
         fun bind(userData: FavoriteUserData) {
             binding.userData = userData
             userId = userData.userId
+        }
+
+        private fun initStarClickListener() {
+            binding.ivStar.setOnClickListener {
+                if (this::userId.isInitialized) removeFavoriteUser.invoke(userId)
+            }
+        }
+
+        private fun initGithubLogoClickListener() {
+            binding.ivGithubLogo.setOnClickListener {
+                if (this::userId.isInitialized) openLink.invoke("https://www.github.com/${userId}")
+            }
         }
     }
 

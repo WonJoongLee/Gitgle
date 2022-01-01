@@ -6,13 +6,19 @@ import androidx.fragment.app.viewModels
 import com.wonjoong.favorite.R
 import com.wonjoong.favorite.databinding.FragmentFavoriteBinding
 import com.wonjoong.shared.base.BaseFragment
+import com.wonjoong.shared.util.openUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment_favorite) {
 
     private val viewModel: FavoriteViewModel by viewModels()
-    private val favoriteAdapter by lazy { FavoriteAdapter(viewModel::removeFavoriteUser) }
+    private val favoriteAdapter by lazy {
+        FavoriteAdapter(
+            viewModel::removeFavoriteUser,
+            requireContext()::openUrl
+        )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
