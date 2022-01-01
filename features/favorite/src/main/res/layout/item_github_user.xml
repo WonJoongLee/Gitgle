@@ -66,7 +66,7 @@
             android:id="@+id/tv_follow_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/follower_info"
+            android:text="@{String.format(@string/follower_info, userData.followers, userData.following)}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@id/tv_created_at"
             app:layout_constraintStart_toStartOf="@id/tv_name"

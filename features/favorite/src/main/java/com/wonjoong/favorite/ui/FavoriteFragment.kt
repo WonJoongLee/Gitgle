@@ -2,11 +2,17 @@ package com.wonjoong.favorite.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.wonjoong.favorite.R
 import com.wonjoong.favorite.databinding.FragmentFavoriteBinding
 import com.wonjoong.shared.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment_favorite) {
+
+    private val viewModel: FavoriteViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBinding()
@@ -14,6 +20,6 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
 
     private fun initBinding() {
         binding.lifecycleOwner = this
-
+        binding.viewModel = viewModel
     }
 }
