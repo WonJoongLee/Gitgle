@@ -2,6 +2,7 @@ package com.wonjoong.data
 
 import com.wonjoong.shared.model.FavoriteUserData
 import com.wonjoong.shared.model.GithubUserInfo
+import kotlinx.coroutines.flow.Flow
 
 interface GithubRepository {
     suspend fun getGithubUserInfoOf(userId: String): GithubUserInfo
@@ -9,4 +10,6 @@ interface GithubRepository {
     suspend fun saveAsFavoriteUser(favoriteUserData: FavoriteUserData)
 
     suspend fun deleteFavoriteUser(userId: String)
+
+    fun getAllFavoriteUsers(): Flow<List<FavoriteUserData>>
 }

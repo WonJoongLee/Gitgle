@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.wonjoong.shared.model.FavoriteUserData
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface GitgleDAO {
@@ -15,4 +16,7 @@ interface GitgleDAO {
 
     @Query("DELETE FROM FavoriteUser WHERE userId = :userId")
     suspend fun deleteUserByUserId(userId: String)
+
+    @Query("SELECT * FROM FavoriteUser")
+    fun getAllFavoriteUsers(): Flow<List<FavoriteUserData>>
 }
