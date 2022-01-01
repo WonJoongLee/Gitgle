@@ -9,7 +9,7 @@ object Apps {
 
 object Versions {
     const val gradle = "7.0.3"
-    const val kotlin = "1.5.31"
+    const val kotlin = "1.6.10"
     const val appcompat = "1.3.1"
     const val junit = "4.13.2"
     const val navigation = "2.4.0-alpha10"
