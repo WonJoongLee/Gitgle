@@ -90,11 +90,15 @@
 
         <TextView
             android:id="@+id/tv_target_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="@={viewModel.name}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_target_created_at"
             app:layout_constraintTop_toTopOf="@id/tv_name"
             tools:text="John Doe" />
@@ -111,11 +115,13 @@
 
         <TextView
             android:id="@+id/tv_target_follower"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:maxLines="1"
             android:text="@={viewModel.follower}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/tv_follower"
+            app:layout_constraintEnd_toEndOf="@id/tv_target_name"
             app:layout_constraintStart_toStartOf="@id/tv_target_created_at"
             app:layout_constraintTop_toTopOf="@id/tv_follower"
             tools:text="37" />
@@ -132,11 +138,13 @@
 
         <TextView
             android:id="@+id/tv_target_following"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:maxLines="1"
             android:text="@={viewModel.following}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/tv_following"
+            app:layout_constraintEnd_toEndOf="@id/tv_target_name"
             app:layout_constraintStart_toStartOf="@id/tv_target_created_at"
             app:layout_constraintTop_toTopOf="@id/tv_following"
             tools:text="54" />
@@ -153,12 +161,14 @@
 
         <TextView
             android:id="@+id/tv_target_created_at"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:maxLines="1"
             android:text="@={viewModel.createdAt}"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@id/tv_created_at"
+            app:layout_constraintEnd_toEndOf="@id/tv_target_name"
             app:layout_constraintStart_toEndOf="@id/tv_created_at"
             app:layout_constraintTop_toTopOf="@id/tv_created_at"
             tools:text="11/08/2019" />
