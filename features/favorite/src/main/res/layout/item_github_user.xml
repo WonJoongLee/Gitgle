@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:ellipsize="end"
+            android:maxLines="1"
             android:text="@{userData.name}"
             android:textColor="@color/black"
             android:textSize="18sp"
