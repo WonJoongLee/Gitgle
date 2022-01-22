@@ -10,6 +10,8 @@ Gitgle(Github + Google) is simple github user search application, using Github A
 - MVVM
 - Retrofit2
 - Glide
+- Jetpack Compose
+- Coil
 
 ## DI Graph
 ![di](https://user-images.githubusercontent.com/57510192/147843750-0295ef41-620e-4265-ad9a-6a36862d2229.PNG)
