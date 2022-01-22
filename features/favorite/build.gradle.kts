@@ -17,7 +17,6 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":domain"))
     kapt(Dep.Libs.hiltCompiler)
-    kapt(Dep.Libs.hiltViewModelCompiler)
     testImplementation(Dep.Test.jUnit)
     androidTestImplementation(Dep.Test.ext)
     androidTestImplementation(Dep.Test.espresso)
