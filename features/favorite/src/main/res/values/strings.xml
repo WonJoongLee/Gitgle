@@ -3,8 +3,12 @@
     <string name="star_image">Star Image</string>
     <string name="github_logo">Github logo</string>
     <string name="follower_info">Follower: %s, Following: %s</string>
+    <string name="created_at">Created at %s</string>
     <string name="profile_image">Profile Image</string>
     <string name="user_removed">User %s has been removed.</string>
     <string name="cancel">Cancel</string>
     <string name="add_favorite_user">Add favorite users!</string>
+    <string name="user_image">User image</string>
+    <string name="favorite_button">Favorite button</string>
+    <string name="personal_github_page">Personal github page</string>
 </resources>
