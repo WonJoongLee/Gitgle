@@ -1,5 +1,7 @@
 package com.wonjoong.favorite.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.compose.foundation.Image
@@ -147,7 +149,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                 Image(
                     modifier = Modifier
                         .clickable {
-                            // todo
+                            removeFavoriteUser(user.userId)
                         }
                         .width(34.dp)
                         .height(34.dp)
@@ -158,7 +160,11 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                 Image(
                     modifier = Modifier
                         .clickable {
-                            // todo
+                            val browserIntent = Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("https://github.com/${user.userId}")
+                            )
+                            startActivity(browserIntent)
                         }
                         .width(34.dp)
                         .height(34.dp)
