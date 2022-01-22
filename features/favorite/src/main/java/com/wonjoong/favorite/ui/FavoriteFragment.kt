@@ -48,7 +48,6 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initBinding()
         initComposeView()
         collectFavoriteFriendList()
     }
@@ -70,11 +69,6 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                 }
             }
         }
-    }
-
-    private fun initBinding() {
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = viewModel
     }
 
     private fun removeFavoriteUser(userId: String) {
