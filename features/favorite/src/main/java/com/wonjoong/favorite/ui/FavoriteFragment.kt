@@ -93,7 +93,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
     private fun FavoritePersonItem(user: FavoriteUserData) {
         val userProfileImage =
             rememberImagePainter(data = user.profileImageUrl) {
-                crossfade(durationMillis = 500)
+                crossfade(durationMillis = FADE_IN_TIME)
                 error(R.drawable.ic_baseline_person_off_24)
                 placeholder(R.drawable.ic_baseline_person_24)
             }
@@ -184,5 +184,9 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                 true
             )
         )
+    }
+
+    companion object {
+        private const val FADE_IN_TIME = 500
     }
 }
