@@ -21,6 +21,8 @@ dependencies {
     implementation(project(":shared"))
     implementation(project(":domain"))
     implementation(Dep.AndroidX.lifecycleRuntimeKtx)
+    implementation(Dep.Compose.coil)
+    implementation(Dep.Compose.constraintLayout)
     kapt(Dep.Libs.hiltCompiler)
     testImplementation(Dep.Test.jUnit)
     androidTestImplementation(Dep.Test.ext)

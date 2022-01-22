@@ -66,6 +66,9 @@ object Dep {
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
         const val uiTestJUnit4 = "androidx.compose.ui:ui-test-junit4:1.0.5"
         const val mdcTheme = "com.google.android.material:compose-theme-adapter:1.0.5"
+        const val coil = "io.coil-kt:coil-compose:1.3.2"
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02"
     }
 
     object Kotlin {
