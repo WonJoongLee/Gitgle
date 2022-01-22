@@ -1,6 +1,5 @@
 package com.wonjoong.favorite.ui
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,6 @@ import com.wonjoong.domain.usecase.local.RemoveFavoriteUserUseCase
 import com.wonjoong.domain.usecase.local.SaveFavoriteUserUseCase
 import com.wonjoong.shared.model.FavoriteUserData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -25,12 +23,7 @@ class FavoriteViewModel @Inject constructor(
     private val _favoriteUserList = MutableLiveData<List<FavoriteUserData>>()
     val favoriteUserList: LiveData<List<FavoriteUserData>> get() = _favoriteUserList
     private lateinit var recentlyRemovedUser: FavoriteUserData
-    val temp = getAlLFavoriteUsersUseCase
-
-
-    init {
-        getFavoriteUserList()
-    }
+    val getFavoriteUserFlow = getAlLFavoriteUsersUseCase.execute()
 
     fun removeFavoriteUser(userId: String) {
         viewModelScope.launch {
@@ -42,15 +35,6 @@ class FavoriteViewModel @Inject constructor(
     fun addRecentlyRemovedUser() {
         viewModelScope.launch {
             saveFavoriteUserUseCase.execute(recentlyRemovedUser)
-        }
-    }
-
-    private fun getFavoriteUserList() {
-        viewModelScope.launch {
-            getAlLFavoriteUsersUseCase.execute().collectLatest { newList ->
-                Log.e("newList", ".$newList")
-                _favoriteUserList.value = newList
-            }
         }
     }
 }

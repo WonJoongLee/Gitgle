@@ -20,6 +20,7 @@ dependencies {
     Dep.compose.forEach(::implementation)
     implementation(project(":shared"))
     implementation(project(":domain"))
+    implementation(Dep.AndroidX.lifecycleRuntimeKtx)
     kapt(Dep.Libs.hiltCompiler)
     testImplementation(Dep.Test.jUnit)
     androidTestImplementation(Dep.Test.ext)
