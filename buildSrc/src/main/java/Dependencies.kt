@@ -65,6 +65,7 @@ object Dep {
         const val uiTooling = "androidx.compose.ui:ui-tooling:1.0.5" // for preview
         const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
         const val uiTestJUnit4 = "androidx.compose.ui:ui-test-junit4:1.0.5"
+        const val mdcTheme = "com.google.android.material:compose-theme-adapter:1.0.5"
     }
 
     object Kotlin {
@@ -128,6 +129,7 @@ object Dep {
         Compose.material,
         Compose.animation,
         Compose.uiTooling,
-        Compose.viewModel
+        Compose.viewModel,
+        Compose.mdcTheme
     )
 }

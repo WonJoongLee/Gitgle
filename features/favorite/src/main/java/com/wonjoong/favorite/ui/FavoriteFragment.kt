@@ -2,7 +2,10 @@ package com.wonjoong.favorite.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.fragment.app.viewModels
+import com.google.android.material.composethemeadapter.MdcTheme
 import com.wonjoong.favorite.R
 import com.wonjoong.favorite.databinding.FragmentFavoriteBinding
 import com.wonjoong.shared.base.BaseFragment
@@ -24,8 +27,13 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBinding()
-        initRecyclerView()
+//        initRecyclerView()
         observeFavoriteUsersList()
+        binding.composeView.setContent {
+            MdcTheme {
+                FavoriteUserList()
+            }
+        }
     }
 
     private fun initBinding() {
@@ -33,9 +41,9 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
         binding.viewModel = viewModel
     }
 
-    private fun initRecyclerView() {
-        binding.rvFavoriteList.adapter = favoriteAdapter
-    }
+//    private fun initRecyclerView() {
+//        binding.rvFavoriteList.adapter = favoriteAdapter
+//    }
 
     private fun observeFavoriteUsersList() {
         viewModel.favoriteUserList.observe(viewLifecycleOwner) { newList ->
@@ -51,4 +59,11 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
             getString(R.string.cancel)
         )
     }
+}
+
+@Composable
+fun FavoriteUserList() {
+    Text(
+        text = "This will be user list"
+    )
 }

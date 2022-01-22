@@ -46,15 +46,17 @@ class FavoriteAdapter(
         }
 
         private fun initStarClickListener() {
-            binding.ivStar.setOnClickListener {
-                if (this::userId.isInitialized) removeFavoriteUser.invoke(userId)
-            }
+            // todo
+//            binding.ivStar.setOnClickListener {
+//                if (this::userId.isInitialized) removeFavoriteUser.invoke(userId)
+//            }
         }
 
         private fun initGithubLogoClickListener() {
-            binding.ivGithubLogo.setOnClickListener {
-                if (this::userId.isInitialized) openLink.invoke("https://www.github.com/${userId}")
-            }
+            // todo
+//            binding.ivGithubLogo.setOnClickListener {
+//                if (this::userId.isInitialized) openLink.invoke("https://www.github.com/${userId}")
+//            }
         }
     }
 
