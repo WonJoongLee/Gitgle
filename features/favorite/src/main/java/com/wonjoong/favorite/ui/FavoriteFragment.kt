@@ -93,7 +93,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
     private fun FavoritePersonItem(user: FavoriteUserData) {
         val userProfileImage =
             rememberImagePainter(data = user.profileImageUrl) {
-                crossfade(durationMillis = 500)
+                crossfade(durationMillis = FADE_IN_TIME)
                 error(R.drawable.ic_baseline_person_off_24)
                 placeholder(R.drawable.ic_baseline_person_24)
             }
@@ -112,7 +112,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                         .height(120.dp)
                         .width(120.dp),
                     painter = userProfileImage,
-                    contentDescription = "User Image",
+                    contentDescription = getString(R.string.user_image),
                     contentScale = ContentScale.Crop
                 )
                 Column(
@@ -126,12 +126,12 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                         overflow = TextOverflow.Ellipsis
                     )
                     Text(
-                        text = "Follower : ${user.followers}, Following : ${user.following}",
+                        text = getString(R.string.follower_info, user.followers, user.following),
                         color = Color.Black,
                         fontSize = 14.sp
                     )
                     Text(
-                        text = "Created at ${user.createdAt}",
+                        text = getString(R.string.created_at, user.createdAt),
                         color = Color.Black,
                         fontSize = 14.sp
                     )
@@ -149,7 +149,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                         .height(34.dp)
                         .padding(4.dp),
                     painter = painterResource(id = R.drawable.ic_baseline_star_24),
-                    contentDescription = "Favorite Button"
+                    contentDescription = getString(R.string.favorite_button)
                 )
                 Image(
                     modifier = Modifier
@@ -164,7 +164,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                         .height(34.dp)
                         .padding(4.dp),
                     painter = painterResource(id = R.drawable.github_logo),
-                    contentDescription = "Personal github page"
+                    contentDescription = getString(R.string.personal_github_page)
                 )
             }
         }
@@ -184,5 +184,9 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
                 true
             )
         )
+    }
+
+    companion object {
+        private const val FADE_IN_TIME = 500
     }
 }
