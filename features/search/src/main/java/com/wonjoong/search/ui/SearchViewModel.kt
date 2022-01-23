@@ -36,7 +36,7 @@ class SearchViewModel @Inject constructor(
         _searchUiState.value = SearchUiState.Loading
         viewModelScope.launch {
             runCatching {
-                getUserInfo.execute(userInput.value.toString())
+                getUserInfo(userInput.value.toString())
             }.onSuccess { githubUserInfo ->
                 _favoriteClickedUiState.value =
                     if (githubUserInfo.isFavorite) FavoriteClickState.Enabled else FavoriteClickState.Disabled
@@ -52,7 +52,7 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             val currentClickedState = _favoriteClickedUiState.value
             if (currentClickedState == FavoriteClickState.Disabled) {
-                saveFavoriteUserUseCase.execute(
+                saveFavoriteUserUseCase(
                     FavoriteUserData(
                         userId = userInput.value ?: "-",
                         name = name.value ?: "-",
@@ -64,7 +64,7 @@ class SearchViewModel @Inject constructor(
                     )
                 )
             } else {
-                deleteFavoriteUserUseCase.execute(userInput.value.toString())
+                deleteFavoriteUserUseCase(userInput.value.toString())
             }
             _favoriteClickedUiState.value =
                 if (currentClickedState == FavoriteClickState.Disabled || currentClickedState == FavoriteClickState.Empty) FavoriteClickState.Enabled else FavoriteClickState.Disabled

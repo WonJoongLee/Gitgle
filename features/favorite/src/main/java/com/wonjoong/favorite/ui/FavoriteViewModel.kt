@@ -32,20 +32,20 @@ class FavoriteViewModel @Inject constructor(
 
     fun removeFavoriteUser(userId: String) {
         viewModelScope.launch {
-            recentlyRemovedUser = getFavoriteUserUseCase.execute(userId)
-            removeFavoriteUserUseCase.execute(userId)
+            recentlyRemovedUser = getFavoriteUserUseCase(userId)
+            removeFavoriteUserUseCase(userId)
         }
     }
 
     fun addRecentlyRemovedUser() {
         viewModelScope.launch {
-            saveFavoriteUserUseCase.execute(recentlyRemovedUser)
+            saveFavoriteUserUseCase(recentlyRemovedUser)
         }
     }
 
     private fun getFavoriteUserList() {
         viewModelScope.launch {
-            getAlLFavoriteUsersUseCase.execute().collectLatest { newList ->
+            getAlLFavoriteUsersUseCase().collectLatest { newList ->
                 _favoriteUserList.value = newList
             }
         }
