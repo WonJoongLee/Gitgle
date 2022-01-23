@@ -15,13 +15,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavoriteViewModel @Inject constructor(
-    private val getAlLFavoriteUsersUseCase: GetAllFavoriteUsersUseCase,
+    getAlLFavoriteUsersUseCase: GetAllFavoriteUsersUseCase,
     private val removeFavoriteUserUseCase: RemoveFavoriteUserUseCase,
     private val getFavoriteUserUseCase: GetFavoriteUserUseCase,
     private val saveFavoriteUserUseCase: SaveFavoriteUserUseCase
 ) : ViewModel() {
-    private val _favoriteUserList = MutableLiveData<List<FavoriteUserData>>()
-    val favoriteUserList: LiveData<List<FavoriteUserData>> get() = _favoriteUserList
     private lateinit var recentlyRemovedUser: FavoriteUserData
     val getFavoriteUserFlow = getAlLFavoriteUsersUseCase()
 
