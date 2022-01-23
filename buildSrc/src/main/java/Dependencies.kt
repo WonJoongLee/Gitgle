@@ -24,6 +24,7 @@ object Versions {
     const val lifeCycle = "2.4.0"
     const val OkHttp = "4.9.1"
     const val Retrofit = "2.9.0"
+    const val compose = "1.0.5"
 }
 
 object Dep {
@@ -55,6 +56,19 @@ object Dep {
         const val navigationSafeArgs =
             "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
         const val browser = "androidx.browser:browser:1.4.0"
+    }
+
+    object Compose {
+        const val activity = "androidx.activity:activity-compose:1.4.0"
+        const val material = "androidx.compose.material:material:1.0.5"
+        const val animation = "androidx.compose.animation:animation:1.0.5"
+        const val uiTooling = "androidx.compose.ui:ui-tooling:1.0.5" // for preview
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
+        const val uiTestJUnit4 = "androidx.compose.ui:ui-test-junit4:1.0.5"
+        const val mdcTheme = "com.google.android.material:compose-theme-adapter:1.0.5"
+        const val coil = "io.coil-kt:coil-compose:1.3.2"
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02"
     }
 
     object Kotlin {
@@ -111,5 +125,14 @@ object Dep {
         Libs.gson,
         Libs.gsonConverter,
         Libs.okHttpInterceptor
+    )
+
+    val compose = listOf(
+        Compose.activity,
+        Compose.material,
+        Compose.animation,
+        Compose.uiTooling,
+        Compose.viewModel,
+        Compose.mdcTheme
     )
 }

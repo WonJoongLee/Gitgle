@@ -10,7 +10,6 @@ import com.wonjoong.domain.usecase.local.RemoveFavoriteUserUseCase
 import com.wonjoong.domain.usecase.local.SaveFavoriteUserUseCase
 import com.wonjoong.shared.model.FavoriteUserData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,11 +23,7 @@ class FavoriteViewModel @Inject constructor(
     private val _favoriteUserList = MutableLiveData<List<FavoriteUserData>>()
     val favoriteUserList: LiveData<List<FavoriteUserData>> get() = _favoriteUserList
     private lateinit var recentlyRemovedUser: FavoriteUserData
-
-
-    init {
-        getFavoriteUserList()
-    }
+    val getFavoriteUserFlow = getAlLFavoriteUsersUseCase()
 
     fun removeFavoriteUser(userId: String) {
         viewModelScope.launch {
@@ -40,14 +35,6 @@ class FavoriteViewModel @Inject constructor(
     fun addRecentlyRemovedUser() {
         viewModelScope.launch {
             saveFavoriteUserUseCase(recentlyRemovedUser)
-        }
-    }
-
-    private fun getFavoriteUserList() {
-        viewModelScope.launch {
-            getAlLFavoriteUsersUseCase().collectLatest { newList ->
-                _favoriteUserList.value = newList
-            }
         }
     }
 }
