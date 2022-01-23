@@ -8,7 +8,7 @@ import javax.inject.Inject
 class RemoveFavoriteUserUseCase @Inject constructor(
     private val githubRepository: GithubRepository
 ) {
-    suspend fun execute(userId: String) = withContext(Dispatchers.IO) {
+    suspend operator fun invoke(userId: String) = withContext(Dispatchers.IO) {
         githubRepository.deleteFavoriteUser(userId)
     }
 }

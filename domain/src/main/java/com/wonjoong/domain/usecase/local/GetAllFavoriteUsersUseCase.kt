@@ -8,5 +8,5 @@ import javax.inject.Inject
 class GetAllFavoriteUsersUseCase @Inject constructor(
     private val githubRepository: GithubRepository
 ) {
-    fun execute(): Flow<List<FavoriteUserData>> = githubRepository.getAllFavoriteUsers()
+    operator fun invoke(): Flow<List<FavoriteUserData>> = githubRepository.getAllFavoriteUsers()
 }

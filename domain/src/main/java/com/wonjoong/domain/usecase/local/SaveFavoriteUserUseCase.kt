@@ -9,7 +9,7 @@ import javax.inject.Inject
 class SaveFavoriteUserUseCase @Inject constructor(
     private val githubRepository: GithubRepository
 ) {
-    suspend fun execute(favoriteUserData: FavoriteUserData) = withContext(Dispatchers.IO) {
+    suspend operator fun invoke(favoriteUserData: FavoriteUserData) = withContext(Dispatchers.IO) {
         githubRepository.saveAsFavoriteUser(favoriteUserData)
     }
 }

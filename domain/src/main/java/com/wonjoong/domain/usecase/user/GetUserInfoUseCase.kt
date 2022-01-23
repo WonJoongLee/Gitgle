@@ -9,7 +9,7 @@ import javax.inject.Inject
 class GetUserInfoUseCase @Inject constructor(
     private val githubRepository: GithubRepository
 ) {
-    suspend fun execute(userId: String): GithubUserInfo = withContext(Dispatchers.IO) {
+    suspend operator fun invoke(userId: String): GithubUserInfo = withContext(Dispatchers.IO) {
         githubRepository.getGithubUserInfoOf(userId)
     }
 }
