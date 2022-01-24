@@ -69,6 +69,7 @@ object Dep {
         const val coil = "io.coil-kt:coil-compose:1.3.2"
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02"
+        const val navigation = "androidx.navigation:navigation-compose:2.4.0-rc01"
     }
 
     object Kotlin {
@@ -133,6 +134,7 @@ object Dep {
         Compose.animation,
         Compose.uiTooling,
         Compose.viewModel,
-        Compose.mdcTheme
+        Compose.mdcTheme,
+        Compose.navigation
     )
 }
