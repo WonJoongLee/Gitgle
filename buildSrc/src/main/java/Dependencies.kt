@@ -70,6 +70,7 @@ object Dep {
         const val constraintLayout =
             "androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02"
         const val navigation = "androidx.navigation:navigation-compose:2.4.0-rc01"
+        const val hiltNavigation = "androidx.hilt:hilt-navigation-compose:1.0.0-rc01"
     }
 
     object Kotlin {
@@ -135,6 +136,7 @@ object Dep {
         Compose.uiTooling,
         Compose.viewModel,
         Compose.mdcTheme,
-        Compose.navigation
+        Compose.navigation,
+        Compose.hiltNavigation
     )
 }
