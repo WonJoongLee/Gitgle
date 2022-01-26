@@ -111,7 +111,6 @@ private fun FavoritePersonItem(
                 modifier = Modifier
                     .clickable {
                         favoriteViewModel.removeFavoriteUser(user.userId)
-                        //removeFavoriteUser(user.userId)
                     }
                     .width(34.dp)
                     .height(34.dp)

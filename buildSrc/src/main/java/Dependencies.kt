@@ -138,6 +138,7 @@ object Dep {
         Compose.viewModel,
         Compose.mdcTheme,
         Compose.navigation,
-        Compose.hiltNavigation
+        Compose.hiltNavigation,
+        Compose.constraintLayout
     )
 }
