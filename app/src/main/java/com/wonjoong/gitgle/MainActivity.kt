@@ -15,7 +15,9 @@ import androidx.navigation.compose.rememberNavController
 import com.wonjoong.gitgle.navigation.BottomNavigationItem
 import com.wonjoong.gitgle.navigation.SetupNavGraph
 import com.wonjoong.gitgle.ui.theme.GitgleTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

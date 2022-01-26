@@ -27,6 +27,7 @@ dependencies {
     implementation(Dep.Compose.coil)
     implementation(Dep.Compose.constraintLayout)
     kapt(Dep.Libs.hiltCompiler)
+    kapt(Dep.Libs.androidHiltCompiler)
     testImplementation(Dep.Test.jUnit)
     androidTestImplementation(Dep.Test.ext)
     androidTestImplementation(Dep.Test.espresso)

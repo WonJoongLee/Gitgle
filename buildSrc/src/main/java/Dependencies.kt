@@ -97,6 +97,7 @@ object Dep {
         const val gsonConverter = "com.squareup.retrofit2:converter-gson:2.9.0"
         const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+        const val androidHiltCompiler = "androidx.hilt:hilt-compiler:1.0.0"
         const val hiltViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModel}"
         const val hiltViewModelCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltViewModel}"
         const val hiltWorkCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltWork}"
