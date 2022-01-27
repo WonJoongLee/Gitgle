@@ -48,6 +48,21 @@ class SearchViewModel @Inject constructor(
         }
     }
 
+    fun searchUser(userInput: String) {
+        _searchUiState.value = SearchUiState.Loading
+        viewModelScope.launch {
+            runCatching {
+                getUserInfo(userInput)
+            }.onSuccess { githubUserInfo ->
+                _favoriteClickedUiState.value =
+                    if (githubUserInfo.isFavorite) FavoriteClickState.Enabled else FavoriteClickState.Disabled
+                _searchUiState.value = SearchUiState.Found
+            }.onFailure {
+                _searchUiState.value = SearchUiState.NotFound
+            }
+        }
+    }
+
     fun saveAsFavoriteFriend() {
         viewModelScope.launch {
             val currentClickedState = _favoriteClickedUiState.value

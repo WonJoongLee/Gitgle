@@ -16,14 +16,14 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun SearchScreen(
-    searchViewModel: SearchViewModel = hiltViewModel()
-) {
+fun SearchScreen() {
     UserInput()
 }
 
 @Composable
-fun UserInput() {
+fun UserInput(
+    searchViewModel: SearchViewModel = hiltViewModel()
+) {
     val userInput = remember {
         mutableStateOf(TextFieldValue())
     }
@@ -52,7 +52,8 @@ fun UserInput() {
                 height = Dimension.fillToConstraints
                 width = Dimension.fillToConstraints
             }
-            .padding(all = 4.dp), onClick = { /*TODO*/ }) {
+            .padding(all = 4.dp),
+            onClick = { searchViewModel.searchUser(userInput.value.text) }) {
             Text(text = "Search")
         }
     }
